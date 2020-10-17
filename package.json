@@ -1,0 +1,71 @@
+{
+  "name": "restool",
+  "version": "2.2.6",
+  "dependencies": {
+    "@aws-amplify/ui-react": "^0.2.23",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "@types/react-router-dom": "^5.1.6",
+    "ajv": "^6.12.5",
+    "aws-amplify": "^3.3.3",
+    "browserslist": "^4.14.5",
+    "caniuse-lite": "^1.0.30001146",
+    "dotenv": "^8.2.0",
+    "flat": "^5.0.2",
+    "lodash": "^4.17.20",
+    "natural-orderby": "^2.0.3",
+    "node-sass": "^4.14.1",
+    "query-string": "^6.13.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-infinite-scroll-component": "^5.1.0",
+    "react-loading-skeleton": "^2.1.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.3.0",
+    "react-toastify": "^5.4.1",
+    "typescript": "^3.9.7"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "prepare": "npm run build",
+    "predeploy": "npm run build",
+    "deploy": "aws s3 sync build/ s3://tool-ui --acl public-read"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/dsternlicht/Restool/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dsternlicht/Restool.git"
+  },
+  "files": [
+    "build"
+  ],
+  "main": "build/restool.js",
+  "module": "build/restool.es.js",
+  "jsnext:main": "build/restool.es.js",
+  "homepage": ".",
+  "devDependencies": {
+    "@types/lodash": "^4.14.161",
+    "gh-pages": "^2.2.0"
+  }
+}
