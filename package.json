@@ -57,13 +57,11 @@
     "type": "git",
     "url": "git+https://github.com/dsternlicht/Restool.git"
   },
-    "husky": {
-      "hooks": {
-        "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-        "pre-commit": "npm test",
-        "pre-push": "npm test",
-        "...": "..."
-      }
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "...": "..."
+    }
   },
   "files": [
     "build"
@@ -76,6 +74,7 @@
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "@types/lodash": "^4.14.161",
-    "gh-pages": "^2.2.0"
+    "gh-pages": "^2.2.0",
+    "husky": "^4.3.0"
   }
 }
