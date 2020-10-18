@@ -4,7 +4,7 @@ echo starting audit
 audit=$(npm audit)
 echo $audit
 
-passPhrase='found 1 vulnerabilities'
+passPhrase='found 0 vulnerabilities'
 
 
 if [[ "$audit" != *"$passPhrase"* ]]; then
