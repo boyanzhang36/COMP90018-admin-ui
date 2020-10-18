@@ -1,5 +1,15 @@
 #!/bin/bash 
 
 echo starting audit
-npm audit
+audit=$(npm audit)
+echo $audit
+
+passPhrase='found 1 vulnerabilities'
+
+
+if [[ "$audit" != *"$passPhrase"* ]]; then
+  echo "npm audit indiciates package vulnerabilities, 'npm audit fix' to address these issues."
+  exit 1
+fi
+
 echo finishing audit
