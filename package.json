@@ -33,7 +33,7 @@
     "eject": "react-scripts eject",
     "prepare": "npm run build",
     "predeploy": "npm run build",
-    "securityScan": "docker run -t owasp/zap2docker-weekly zap-baseline.py -t https://master.dbp9icueqx10a.amplifyapp.com/#/doctors"
+    "securityScan": "docker run -t owasp/zap2docker-weekly zap-baseline.py -t"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -57,6 +57,12 @@
     "type": "git",
     "url": "git+https://github.com/dsternlicht/Restool.git"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "...": "..."
+    }
+  },
   "files": [
     "build"
   ],
@@ -65,7 +71,10 @@
   "jsnext:main": "build/restool.es.js",
   "homepage": ".",
   "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "@types/lodash": "^4.14.161",
-    "gh-pages": "^2.2.0"
+    "gh-pages": "^2.2.0",
+    "husky": "^4.3.0"
   }
 }
