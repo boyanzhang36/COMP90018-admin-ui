@@ -33,7 +33,7 @@
     "eject": "react-scripts eject",
     "prepare": "npm run build",
     "predeploy": "npm run build",
-    "securityScan": "scan.sh"
+    "securityScan": "docker run -t owasp/zap2docker-weekly zap-baseline.py -t https://master.dbp9icueqx10a.amplifyapp.com/#/doctors"
   },
   "eslintConfig": {
     "extends": "react-app"
