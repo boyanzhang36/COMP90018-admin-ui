@@ -31,17 +31,17 @@
 
     const scriptItem = arr[idx];
     const scriptElm = document.createElement('script');
-    
+
     if (scriptItem.src) {
       scriptElm.src = scriptItem.src.replace(origin, `${packageUrl}/build`);
-      scriptElm.onload = function() {
+      scriptElm.onload = function () {
         loadScriptsRecursively(arr, idx + 1);
       };
     } else {
       scriptElm.innerHTML = scriptItem.innerHTML;
       loadScriptsRecursively(arr, idx + 1);
     }
-    
+
     document.body.appendChild(scriptElm);
   }
 
@@ -62,8 +62,8 @@
   async function init() {
     const html = await fetchHtml();
     const tempElm = document.createElement('html');
-    tempElm.innerHTML= html.replace(/href="./g, `href="${packageUrl}/build`).replace(/src="./g, `src="${packageUrl}/build`);
-    
+    tempElm.innerHTML = html.replace(/href="./g, `href="${packageUrl}/build`).replace(/src="./g, `src="${packageUrl}/build`);
+
     const scripts = tempElm.querySelectorAll('script');
     const styles = tempElm.querySelectorAll('link[rel=stylesheet]');
 
