@@ -7,17 +7,18 @@ const puppeteer = require('puppeteer')
 
 /////////////////////
 // E2E Test Example
-
+const isHeadless = false;
+const ui_url = 'http://localhost:3000/';
 
 test('add item to Doctor', async () => {
     const browser = await puppeteer.launch({
-        headless: false,
+        headless: isHeadless,
         slowMo: 40,
         args: ['--window-size=1920, 1080']
     })
 
     const page = await browser.newPage();
-    await page.goto('http://localhost:3001/')
+    await page.goto(ui_url)
 
     // sign in
     // await page.waitForSelector("input#email.input")
@@ -57,13 +58,13 @@ test('add item to Doctor', async () => {
 
 test('delete item from Doctor', async () => {
     const browser = await puppeteer.launch({
-        headless: false,
+        headless: isHeadless,
         slowMo: 40,
         args: ['--window-size=1920, 1080']
     })
 
     const page = await browser.newPage();
-    await page.goto('http://localhost:3001/')
+    await page.goto(ui_url)
 
     await page.waitForSelector("#root > div > div.app-page > main > div > table > tbody > tr")
     const tableCount = (await page.$$("#root > div > div.app-page > main > div > table > tbody > tr")).length
