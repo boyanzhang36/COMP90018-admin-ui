@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
@@ -8,15 +9,26 @@ import { Navigation } from '../components/navigation/navigation.comp';
 import { AppContext } from './app.context';
 import HttpService from '../services/http.service';
 import { CustomStyles } from './customStyles/customStyles.comp';
+import App from './app';
 
 import './app.scss';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { AmplifyAuthenticator, AmplifySignOut, AmplifySignUp, AmplifySignIn } from '@aws-amplify/ui-react';
-
+import Amplify from "aws-amplify";
 
 // Configure dotenv for Setup Environment Variables:
 require('dotenv').config();
+
+// Re-use an existing authentication resource from AWS
+Amplify.configure({
+  Auth: {
+    mandatorySignIn: true,
+    region: process.env.REACT_APP_REGION,
+    userPoolId: process.env.REACT_APP_USER_POOL_ID,
+    userPoolWebClientId: process.env.REACT_APP_APP_CLIENT_ID
+  }
+});
 
 const httpService = new HttpService();
 const defaultAppName: string = 'RESTool App';
@@ -34,7 +46,7 @@ function changeFavicon(src: string) {
 }
 
 // Components
-function App() {
+function AppWithAuth() {
   const [firstLoad, setFirstLoad] = useState<boolean>(true);
   const [config, setConfig] = useState<IConfig | null>(null);
   const [activePage, setActivePage] = useState<IConfigPage | null>(config?.pages?.[0] || null);
@@ -117,48 +129,38 @@ function App() {
   }, [config]);
   
   return (
-
-      <div className="restool-app" data-testid="restool">
-      {
-        !config ?
-        <div className="app-error" data-testid="app-error">
-        {firstLoad ? 'Loading Configuration...' : 'Could not find config file.'}
-        </div> :
-
-        <AppContext.Provider value={{ config, activePage, setActivePage, error, setError, httpService }}>
+    <AmplifyAuthenticator usernameAlias="email" data-testid="amplify-auth">
+      {/* <AmplifySignUp
+        data-testid="sign-up"
+        slot="sign-up"
+        usernameAlias="email"
+        
+        formFields={[
           {
-            config.customStyles &&
-            <CustomStyles
-            styles={config.customStyles}
-            />
-          }
-        <Router>
-          <aside>
-          
-            <h1 title={appName} onClick={() => scrollToTop()}>{appName}</h1>
-            <AmplifySignOut />
-            {
-              <Navigation />
-            }
-          </aside>
+            type: "email",
+            label: "Email Address",
+            placeholder: "Enter your email address",
+            required: true,
+          },
           {
-            config &&
-            <Switch>
-            <Route exact path="/:page" component={Page} />
-            <Redirect path="/" to={`/${config?.pages?.[0]?.id || '1'}`} />
-            </Switch>
+            type: "password",
+            label: "Password",
+            placeholder: "Enter your password",
+            required: true,
+          },
+          {
+            type: "phone_number",
+            label: "Phone number",
+            placeholder: "Enter your phone number",
+            required: false,
           }
-          <ToastContainer
-          position={toast.POSITION.TOP_CENTER}
-          autoClose={4000}
-          draggable={false}
-        />
-        </Router>
-      </AppContext.Provider>
-    }
-    </div>
-  );
+        ]} 
+      /> */}
+      <AmplifySignIn slot="sign-in" hideSignUp usernameAlias="email" data-testid="sign-in"/>
+        <App /> 
+    </AmplifyAuthenticator>
+    );
   }
   
-  export default App;
+  export default AppWithAuth;
   

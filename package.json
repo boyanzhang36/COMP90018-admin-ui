@@ -22,7 +22,7 @@
     "react-infinite-scroll-component": "^5.1.0",
     "react-loading-skeleton": "^2.1.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.3",
+    "react-scripts": "^3.4.4",
     "react-toastify": "^5.4.1",
     "typescript": "^3.9.7"
   },
@@ -84,6 +84,7 @@
     "eslint-plugin-react-hooks": "^4.0.0",
     "gh-pages": "^2.2.0",
     "husky": "^4.3.0",
-    "prettier": "^2.1.2"
+    "prettier": "^2.1.2",
+    "puppeteer": "^5.3.1"
   }
 }
