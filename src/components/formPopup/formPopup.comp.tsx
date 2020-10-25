@@ -168,6 +168,20 @@ export const FormPopup = withAppContext(({ context, title, fields, rawData, getS
       if (field.type === 'encode') {
         finalObject[field.name] = encodeURIComponent(field.value);
       }
+
+      if (field.type === 'email') {
+        if (field.value){
+          if (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(field.value)===false){
+            validationError = `Invalid email address! Please make sure your email has the following structure: email@example.com`;
+          }
+        }
+      }
+
+      if (field.required && !field.value) {
+        validationError = 'Please fill up all required fields.';
+      }
+
+
     });
 
     if (validationError) {
@@ -185,7 +199,8 @@ export const FormPopup = withAppContext(({ context, title, fields, rawData, getS
 
       closeCallback(true);
     } catch (e) {
-      toast.error(e.message);
+      
+      toast.error("Submitted data is invalid. Please make sure the information you entered is correct.");
     }
 
     setLoading(false);
