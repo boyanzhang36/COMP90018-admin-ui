@@ -10,5 +10,5 @@ PASS src/components/appWithAuth.test.js
 Test Suites: 4 passed, 4 total
 Tests:       4 passed, 4 total
 Snapshots:   0 total
-Time:        7.03s
+Time:        5.11s, estimated 7s
 Ran all test suites matching /src\/components\/navigation.test.js|src\/components\/app.test.js|src\/components\/appWithAuth.test.js|src\/components\/page\/page.comp.test.js/i.
