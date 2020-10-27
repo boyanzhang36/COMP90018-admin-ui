@@ -1,9 +1,21 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+import { render, screen, cleanup } from '@testing-library/react';
+import App from './app';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+afterEach(cleanup)
+
+describe('App', () => {
+
+  test('renders App', () => {
+    
+    render(<App />)
+    // screen.debug()
+
+    expect(screen.getByTestId('restool')).toBeInTheDocument();
+    
+  });
+
 });
+
+
+

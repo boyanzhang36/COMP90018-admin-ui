@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import AppWithAuth from './components/appWithAuth';
 import App from './components/app';
 import * as serviceWorker from './serviceWorker';
 
@@ -9,7 +10,10 @@ import './index.scss';
 console.log(process.env)
 console.log('The value of NODE_ENV is:', process.env.NODE_ENV);
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+ReactDOM.render(<AppWithAuth />, document.getElementById('root'));
+// ReactDOM.render(<App />, document.getElementById('root'));
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
