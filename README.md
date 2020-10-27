@@ -3,20 +3,20 @@
 ## 2. Testing
 
 ### 2.1 Setup
+
 The front-end test automation is done using [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) and [Puppeteer](https://github.com/puppeteer/puppeteer/blob/v5.4.0/docs/api.md#pageclickselector-options).
 
 Run `npm install` to install all the dependencies.
 
+To install React Testing Library:
 
-To install React Testing Library: <br>
 `npm install --save-dev @testing-library/react`
 
-To install Puppeteer: <br>
+To install Puppeteer:
+
 `npm install --save-dev puppeteer`
 
 ### 2.2 Run Test
-
-
 
 > **Notes**:
 > The front-end UI `App` component is wrapped inside `AmplifyAuthenticator` within `AppWithAuth` component to provide authentication service to the front-end. Automating the process of amplify sign-in is not allow through Puppeteer because `AmplifyAuthenticator` components are with shadow-dom.
@@ -59,4 +59,3 @@ To perform component test, run `npm run test:component`. All the component testi
 
 Testing includes multiple Component tests to check if react components are correctly rendered on screen.
 ![Front-end Test Result](README-related/test_result.png)
-

@@ -390,7 +390,7 @@ const PageComp = ({ context }: IProps) => {
         }
       }
     } catch (e) {
-      toast.error(e.message);
+      toast.error('Cannot delete this row! This row may contain information that is referenced elsewhere within the database.');
     }
   }
 
