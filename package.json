@@ -30,6 +30,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:component": "react-scripts test src/components/navigation.test.js src/components/app.test.js src/components/appWithAuth.test.js src/components/page/page.comp.test.js",
+    "test:e2e": "react-scripts test src/components/e2e.test.js",
     "eject": "react-scripts eject",
     "prepare": "npm run build",
     "predeploy": "npm run build",
