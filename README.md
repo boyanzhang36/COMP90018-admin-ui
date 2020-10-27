@@ -16,8 +16,10 @@ To install Puppeteer: <br>
 
 ### 2.2 Run Test
 
-> **Notes**: <br>
-> The front-end UI `App` component is wrapped inside `AmplifyAuthenticator` within `AppWithAuth` component to provide authentication service to the front-end. Automating the process of amplify sign-in is not allow through Puppeteer because `AmplifyAuthenticator` components are with shadow-dom. <br>
+
+
+> **Notes**:
+> The front-end UI `App` component is wrapped inside `AmplifyAuthenticator` within `AppWithAuth` component to provide authentication service to the front-end. Automating the process of amplify sign-in is not allow through Puppeteer because `AmplifyAuthenticator` components are with shadow-dom.
 
 In order to run end-to-end test, we need our front-end to render only the `App` component without authentication. Make the following change in *src/index.tsx*:
 
@@ -33,12 +35,7 @@ In deployment, change the code back to rendering `AppWithAuth` instead of `App` 
 ReactDOM.render(<AppWithAuth />, document.getElementById('root'));
 ```
 
-### 2.2.1 Steps
-In terminal, run `npm start` to set up the development environment and start a server with address 'localhost:3000'.
-
-Then in another terminal, run `npm test`. All the `*.test.js` files will be run.
-
-Testing includes multiple Component tests to check if react components are correctly rendered on screen, and end-to-end UI automation tests to mock user interactions in a browser.
+#### 2.2.1 End to End Test
 
 End-to-end test code are stored in *src/components/e2e.test.js*. It will open two Chromium browsers, and automate the following steps:
 
@@ -47,6 +44,19 @@ End-to-end test code are stored in *src/components/e2e.test.js*. It will open tw
 - click on ‘add item’ → type name, etc. → click on ’submit' to update data.
 - Open another browswer → click on 'delete' in a table row → "accept delete action in popped up dialog".
 
+> Note: The end to end test will modify the backend database. Connect the front-end to a test database before conducting end to end test by modifying `REACT_APP_BASEURL` in `./.env` file.
+
+In terminal, run `npm start` to set up the development environment and start a server with address 'localhost:3000'.
+
+Run end to end test with the following command: `npm run test:e2e`
+
+The test will open a Chromium browser and auto-perform the process of add and deleting items.
+![Browser Automation](README-related/puppeteer_automation.png)
+
+#### 2.2.2 Component Test
+
+To perform component test, run `npm run test:component`. All the component testing `*.test.js` files will be run.
+
+Testing includes multiple Component tests to check if react components are correctly rendered on screen.
 ![Front-end Test Result](README-related/test_result.png)
 
-![Browser Automation](README-related/puppeteer_automation.png)

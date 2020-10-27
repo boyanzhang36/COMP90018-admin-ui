@@ -1,0 +1,14 @@
+
+> restool@2.2.6 test:component /Users/charcoalab_2016/Desktop/COMP90082_SW Proj/ms-admin-ui
+> CI=true react-scripts test src/components/navigation.test.js src/components/app.test.js src/components/appWithAuth.test.js src/components/page/page.comp.test.js
+
+PASS src/components/page/page.comp.test.js
+PASS src/components/navigation.test.js
+PASS src/components/app.test.js
+PASS src/components/appWithAuth.test.js
+
+Test Suites: 4 passed, 4 total
+Tests:       4 passed, 4 total
+Snapshots:   0 total
+Time:        7.03s
+Ran all test suites matching /src\/components\/navigation.test.js|src\/components\/app.test.js|src\/components\/appWithAuth.test.js|src\/components\/page\/page.comp.test.js/i.

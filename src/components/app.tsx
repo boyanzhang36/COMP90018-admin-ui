@@ -12,7 +12,7 @@ import { CustomStyles } from './customStyles/customStyles.comp';
 import './app.scss';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { AmplifyAuthenticator, AmplifySignOut, AmplifySignUp, AmplifySignIn } from '@aws-amplify/ui-react';
+import { AmplifySignOut } from '@aws-amplify/ui-react';
 
 
 // Configure dotenv for Setup Environment Variables:
