@@ -13,6 +13,7 @@ frontend:
     build:
       commands:
         - chmod +x scan.sh
+        - chmod +x test.sh
         - ./scan.sh
         - ./test.sh
         - npm run build

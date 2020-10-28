@@ -1,14 +1,16 @@
 
-> restool@2.2.6 test:component /Users/charcoalab_2016/Desktop/COMP90082_SW Proj/ms-admin-ui
+> restool@2.2.6 test:component C:\Users\chris\Desktop\MS-Tool\ms-admin-ui
 > CI=true react-scripts test src/components/navigation.test.js src/components/app.test.js src/components/appWithAuth.test.js src/components/page/page.comp.test.js
 
-PASS src/components/page/page.comp.test.js
-PASS src/components/navigation.test.js
-PASS src/components/app.test.js
-PASS src/components/appWithAuth.test.js
+'CI' is not recognized as an internal or external command,
+operable program or batch file.
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! restool@2.2.6 test:component: `CI=true react-scripts test src/components/navigation.test.js src/components/app.test.js src/components/appWithAuth.test.js src/components/page/page.comp.test.js`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the restool@2.2.6 test:component script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
-Test Suites: 4 passed, 4 total
-Tests:       4 passed, 4 total
-Snapshots:   0 total
-Time:        5.11s, estimated 7s
-Ran all test suites matching /src\/components\/navigation.test.js|src\/components\/app.test.js|src\/components\/appWithAuth.test.js|src\/components\/page\/page.comp.test.js/i.
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\chris\AppData\Roaming\npm-cache\_logs\2020-10-28T05_38_25_378Z-debug.log
