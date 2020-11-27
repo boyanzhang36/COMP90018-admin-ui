@@ -1,4 +1,5 @@
 # Front-End UI Tool
+![Front-end Test Result](README-related/Admin-tool-ui.png)
 
 ## Installation
 
